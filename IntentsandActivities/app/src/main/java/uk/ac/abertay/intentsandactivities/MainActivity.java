@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnGetContactClicked(EditText inputField) {
-        Toaster("Getting contacts");
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
         startActivityForResult(intent, GET_CONTACT_REQUEST);
@@ -120,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        Toaster("Opening the browser to: " + contents);
         Intent webBrowserIntent = new Intent(MainActivity.this, BrowserActivity.class);
         webBrowserIntent.putExtra("webAddressToLoad",contents);
         startActivity(webBrowserIntent);
