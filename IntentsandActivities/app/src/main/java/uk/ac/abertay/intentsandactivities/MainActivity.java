@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -113,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if (!contents.matches("^(http://)|^(https://)")) {
-            Toaster("Web addresses must begin with http:// or https://");
+        if (!Patterns.WEB_URL.matcher(contents).matches()) {
+            Toaster("The address entered is not valid.");
             return;
         }
 
