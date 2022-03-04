@@ -87,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        String uri = "tel:" + contents;
-
+        String uri = "tel:" + Uri.encode(contents);
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(uri));
         startActivity(intent);
     }
