@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int GET_CONTACT_REQUEST = 1;
     Toast lastToast;
 
     public void Toaster(String text) {
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER); // find out what the index for the phone number column is
             String number = cursor.getString(numberIndex); // use this index to get the string value from the column in the current row
             /* Don't forget to change the "inputFieldID" to the id of your EditText field */
-//            ((EditText)findViewById(R.id.inputFieldID)).setText(number); // set the text of the input field to the phone number string
+            ((EditText) findViewById(R.id.etInputField)).setText(number); // set the text of the input field to the phone number string
         }
     }
 
@@ -83,6 +85,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void btnGetContactClicked(EditText inputField) {
         Toaster("Getting contacts");
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+        startActivityForResult(intent, GET_CONTACT_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == GET_CONTACT_REQUEST && resultCode == RESULT_OK) {
+            getContactNumber(data);
+        }
     }
 
     private void btnGoToWebClicked(EditText inputField) {
@@ -92,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if(!contents.matches("^(http://)|^(https://)")){
+        if (!contents.matches("^(http://)|^(https://)")) {
             Toaster("Web addresses must begin with http:// or https://");
             return;
         }
