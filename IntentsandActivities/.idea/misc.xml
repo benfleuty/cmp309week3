@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/uni/309/week3/IntentsandActivities/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2705" />
+        <entry key="..\:/uni/309/week3/IntentsandActivities/app/src/main/res/layout/activity_browser.xml" value="0.26145833333333335" />
         <entry key="..\:/uni/309/week3/IntentsandActivities/app/src/main/res/layout/activity_main.xml" value="0.2346115035317861" />
       </map>
     </option>
