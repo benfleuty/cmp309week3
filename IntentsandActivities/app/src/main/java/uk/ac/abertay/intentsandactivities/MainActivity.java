@@ -28,9 +28,10 @@ public class MainActivity extends AppCompatActivity {
             int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER); // find out what the index for the phone number column is
             String number = cursor.getString(numberIndex); // use this index to get the string value from the column in the current row
             /** Don't forget to change the "inputFieldID" to the id of your EditText field */
-            ((EditText)findViewById(R.id.inputFieldID)).setText(number); // set the text of the input field to the phone number string
+//            ((EditText)findViewById(R.id.inputFieldID)).setText(number); // set the text of the input field to the phone number string
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

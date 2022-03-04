@@ -4,15 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="25dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etInputField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter a name, number, or web address"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/space"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <Button
+        android:id="@+id/btnDialNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dial Number"
+        app:layout_constraintTop_toBottomOf="@+id/etInputField"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <Button
+        android:id="@+id/btnGetContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Contact"
+        app:layout_constraintTop_toBottomOf="@+id/btnDialNumber"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <Button
+        android:id="@+id/btnGoToWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Link"
+        app:layout_constraintTop_toBottomOf="@+id/btnGetContact"
+        tools:layout_editor_absoluteX="25dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
