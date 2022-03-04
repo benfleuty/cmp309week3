@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -57,28 +58,46 @@ public class MainActivity extends AppCompatActivity {
         int btnGetContactId = findViewById(R.id.btnGetContact).getId();
         int btnGoToWebId = findViewById(R.id.btnGoToWeb).getId();
 
+        EditText inputField = findViewById(R.id.etInputField);
 
         if (action == btnDialNumberId) {
-            btnDialNumberClicked();
+            btnDialNumberClicked(inputField);
         } else if (action == btnGetContactId) {
-            btnGetContactClicked();
+            btnGetContactClicked(inputField);
         } else if (action == btnGoToWebId) {
-            btnGoToWebClicked();
+            btnGoToWebClicked(inputField);
         } else {
             Toaster("error");
         }
     }
 
-    private void btnDialNumberClicked() {
-        Toaster("dial number clicked");
+    private void btnDialNumberClicked(EditText inputField) {
+        String contents = inputField.getText().toString();
+        if (contents.length() == 0) {
+            Toaster("Please enter a phone number");
+            return;
+        }
+
+        Toaster("Opening dialer with phone number: " + contents);
     }
 
-    private void btnGetContactClicked() {
-        Toaster("get contact clicked");
+    private void btnGetContactClicked(EditText inputField) {
+        Toaster("Getting contacts");
     }
 
-    private void btnGoToWebClicked() {
-        Toaster("go to web clicked");
+    private void btnGoToWebClicked(EditText inputField) {
+        String contents = inputField.getText().toString();
+        if (contents.length() == 0) {
+            Toaster("Please enter a web address");
+            return;
+        }
+
+        if(!contents.matches("^(http://)|^(https://)")){
+            Toaster("Web addresses must begin with http:// or https://");
+            return;
+        }
+
+        Toaster("Opening the browser to: " + contents);
     }
 
     @Override
