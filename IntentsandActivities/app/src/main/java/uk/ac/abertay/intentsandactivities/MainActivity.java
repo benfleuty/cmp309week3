@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if(!contents.matches("[0-9#*+]*")){
+        if(!contents.matches("[0-9#*+ ]*")){
             Toaster("The entered value is not a valid phone number!");
             return;
         }
