@@ -59,14 +59,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (action == btnDialNumberId) {
-            Toaster("dial number clicked");
+            btnDialNumberClicked();
         } else if (action == btnGetContentId) {
-            Toaster("get contact clicked");
+            btnGetContactClicked();
         } else if (action == btnGoToWebId) {
-            Toaster("go to web clicked");
+            btnGoToWebClicked();
         } else {
             Toaster("error");
         }
+    }
+
+    private void btnDialNumberClicked() {
+        Toaster("dial number clicked");
+    }
+
+    private void btnGetContactClicked() {
+        Toaster("get contact clicked");
+    }
+
+    private void btnGoToWebClicked() {
+        Toaster("go to web clicked");
     }
 
     @Override
