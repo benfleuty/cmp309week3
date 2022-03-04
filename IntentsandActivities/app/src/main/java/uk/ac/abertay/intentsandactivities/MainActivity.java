@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        if(!contents.matches("[0-9#*+]*")){
+            Toaster("The entered value is not a valid phone number!");
+            return;
+        }
+
         String uri = "tel:" + contents;
 
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(uri));
