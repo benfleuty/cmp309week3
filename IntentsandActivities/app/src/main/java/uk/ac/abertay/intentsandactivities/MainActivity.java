@@ -54,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
     public void handleClick(View view) {
         int action = view.getId();
         int btnDialNumberId = findViewById(R.id.btnDialNumber).getId();
-        int btnGetContentId = findViewById(R.id.btnGetContact).getId();
+        int btnGetContactId = findViewById(R.id.btnGetContact).getId();
         int btnGoToWebId = findViewById(R.id.btnGoToWeb).getId();
 
 
         if (action == btnDialNumberId) {
             btnDialNumberClicked();
-        } else if (action == btnGetContentId) {
+        } else if (action == btnGetContactId) {
             btnGetContactClicked();
         } else if (action == btnGoToWebId) {
             btnGoToWebClicked();
