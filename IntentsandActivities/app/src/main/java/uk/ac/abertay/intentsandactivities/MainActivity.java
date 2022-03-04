@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Patterns;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -120,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Toaster("Opening the browser to: " + contents);
+        Intent webBrowserIntent = new Intent(MainActivity.this, BrowserActivity.class);
+        webBrowserIntent.putExtra("webAddressToLoad",contents);
+        startActivity(webBrowserIntent);
     }
 
     @Override
