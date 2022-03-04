@@ -80,7 +80,10 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        Toaster("Opening dialer with phone number: " + contents);
+        String uri = "tel:" + contents;
+
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(uri));
+        startActivity(intent);
     }
 
     private void btnGetContactClicked(EditText inputField) {
